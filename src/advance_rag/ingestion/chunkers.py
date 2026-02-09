@@ -436,14 +436,8 @@ class CSVChunker(BaseChunker):
 
 def get_chunker(document_type: DocumentType) -> BaseChunker:
     """Get appropriate chunker for document type."""
-    chunkers = {
-        DocumentType.MD: MarkdownChunker,
-        DocumentType.SDTM: JSONChunker,
-        DocumentType.ADAM: JSONChunker,
-        DocumentType.SAP: MarkdownChunker,
-        DocumentType.PROTOCOL: MarkdownChunker,
-        DocumentType.OTHER: TextChunker,
-    }
+    # Import advanced chunkers
+    from advance_rag.ingestion.advanced_chunkers import AdaptiveChunker
 
-    chunker_class = chunkers.get(document_type, TextChunker)
-    return chunker_class()
+    # Use advanced adaptive chunker for all types
+    return AdaptiveChunker()

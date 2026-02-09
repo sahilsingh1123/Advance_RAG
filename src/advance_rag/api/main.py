@@ -22,13 +22,13 @@ from advance_rag.core.logging import (
 )
 from advance_rag.core.tracing import tracing_config
 from advance_rag.core.auth import create_default_admin
-from advance_rag.retrieval.vector_store import VectorStore
+from advance_rag.retrieval.vector_store_factory import VectorStoreFactory
 from advance_rag.embedding.service import EmbeddingService
 from advance_rag.graph.neo4j_service import Neo4jService
 from advance_rag.graph.graphrag import GraphRAGService
 from advance_rag.ingestion.service import IngestionService
 from advance_rag.retrieval.hybrid import AdvancedHybridRetriever
-from advance_rag.services.query_service import QueryService
+from advance_rag.services.query_service import QueryService, LLMService
 from advance_rag.services.notification_service import notification_service
 from advance_rag.services.backup_service import backup_service
 
@@ -82,8 +82,8 @@ async def lifespan(app: FastAPI):
         global vector_store, embedding_service, neo4j_service
         global graphrag_service, retriever, query_service, ingestion_service
 
-        # Initialize vector store
-        vector_store = VectorStore()
+        # Initialize vector store using factory
+        vector_store = VectorStoreFactory.create_vector_store()
         await vector_store.initialize()
 
         # Initialize embedding service
@@ -96,8 +96,13 @@ async def lifespan(app: FastAPI):
         # Initialize GraphRAG service
         graphrag_service = GraphRAGService(neo4j_service)
 
-        # Initialize retriever
-        retriever = AdvancedHybridRetriever(vector_store, embedding_service)
+        # Initialize LLM service
+        llm_service = LLMService()
+
+        # Initialize retriever with LLM service
+        retriever = AdvancedHybridRetriever(
+            vector_store, embedding_service, llm_service
+        )
 
         # Initialize services
         query_service = QueryService(
