@@ -12,6 +12,15 @@
 -e file:.
 aiofiles==25.1.0
     # via advance-rag
+aiohappyeyeballs==2.6.1
+    # via aiohttp
+aiohttp==3.13.3
+    # via langchain-community
+    # via llama-index-core
+aiosignal==1.4.0
+    # via aiohttp
+aiosqlite==0.22.1
+    # via llama-index-core
 amqp==5.3.1
     # via kombu
 annotated-doc==0.0.4
@@ -20,32 +29,58 @@ annotated-types==0.7.0
     # via pydantic
 anyio==4.12.1
     # via httpx
+    # via openai
     # via starlette
+    # via watchfiles
 asgiref==3.11.1
     # via opentelemetry-instrumentation-asgi
 asyncpg==0.31.0
     # via advance-rag
+attrs==25.4.0
+    # via aiohttp
+    # via jsonschema
+    # via referencing
+authlib==1.6.7
+    # via weaviate-client
+backoff==2.2.1
+    # via posthog
+banks==2.4.0
+    # via llama-index-core
+bcrypt==5.0.0
+    # via chromadb
 beautifulsoup4==4.14.3
     # via advance-rag
+    # via llama-index-readers-file
 billiard==4.2.4
     # via celery
 black==26.1.0
+build==1.4.0
+    # via chromadb
 celery==5.6.2
     # via advance-rag
 certifi==2026.1.4
     # via httpcore
     # via httpx
+    # via kubernetes
+    # via llama-cloud
+    # via pinecone
     # via requests
+cffi==2.0.0
+    # via cryptography
 cfgv==3.5.0
     # via pre-commit
 charset-normalizer==3.4.4
     # via requests
+chromadb==1.4.1
+    # via advance-rag
 click==8.3.1
     # via black
     # via celery
     # via click-didyoumean
     # via click-plugins
     # via click-repl
+    # via llama-cloud-services
+    # via nltk
     # via typer
     # via typer-slim
     # via uvicorn
@@ -55,10 +90,33 @@ click-plugins==1.1.1.2
     # via celery
 click-repl==0.3.0
     # via celery
+colorama==0.4.6
+    # via griffe
+cryptography==46.0.4
+    # via authlib
+dataclasses-json==0.6.7
+    # via langchain-community
+    # via llama-index-core
+defusedxml==0.7.1
+    # via llama-index-readers-file
+deprecated==1.2.18
+    # via banks
+    # via llama-index-core
+    # via llama-index-indices-managed-llama-cloud
+    # via llama-index-instrumentation
+deprecation==2.1.0
+    # via weaviate-client
+dirtyjson==1.0.8
+    # via llama-index-core
 distlib==0.4.0
     # via virtualenv
+distro==1.9.0
+    # via openai
+    # via posthog
 dnspython==2.8.0
     # via email-validator
+durationpy==0.10
+    # via kubernetes
 ecdsa==0.19.1
     # via python-jose
 email-validator==2.3.0
@@ -69,14 +127,30 @@ filelock==3.20.3
     # via huggingface-hub
     # via torch
     # via virtualenv
-fsspec==2026.2.0
+filetype==1.2.0
+    # via banks
+    # via llama-index-core
+flatbuffers==25.12.19
+    # via onnxruntime
+frozenlist==1.8.0
+    # via aiohttp
+    # via aiosignal
+fsspec==2024.12.0
     # via huggingface-hub
+    # via llama-index-core
+    # via neo4j-graphrag
     # via torch
 googleapis-common-protos==1.72.0
     # via opentelemetry-exporter-otlp-proto-grpc
     # via opentelemetry-exporter-otlp-proto-http
+greenlet==3.3.1
+    # via sqlalchemy
+griffe==1.15.0
+    # via banks
 grpcio==1.78.0
+    # via chromadb
     # via opentelemetry-exporter-otlp-proto-grpc
+    # via weaviate-client
 h11==0.16.0
     # via httpcore
     # via uvicorn
@@ -84,8 +158,18 @@ hf-xet==1.2.0
     # via huggingface-hub
 httpcore==1.0.9
     # via httpx
+httptools==0.7.1
+    # via uvicorn
 httpx==0.28.1
+    # via chromadb
     # via huggingface-hub
+    # via langsmith
+    # via llama-cloud
+    # via llama-index-core
+    # via openai
+    # via weaviate-client
+httpx-sse==0.4.3
+    # via langchain-community
 huggingface-hub==1.4.1
     # via sentence-transformers
     # via tokenizers
@@ -97,48 +181,147 @@ idna==3.11
     # via email-validator
     # via httpx
     # via requests
+    # via yarl
 importlib-metadata==8.7.1
     # via opentelemetry-api
+importlib-resources==6.5.2
+    # via chromadb
 iniconfig==2.3.0
     # via pytest
 jinja2==3.1.6
+    # via banks
     # via torch
+jiter==0.13.0
+    # via openai
 joblib==1.5.3
+    # via nltk
     # via scikit-learn
+json-repair==0.44.1
+    # via neo4j-graphrag
+jsonpatch==1.33
+    # via langchain-core
+jsonpointer==3.0.0
+    # via jsonpatch
+jsonschema==4.26.0
+    # via chromadb
+jsonschema-specifications==2025.9.1
+    # via jsonschema
 kombu==5.6.2
     # via celery
+kubernetes==35.0.0
+    # via chromadb
+langchain-classic==1.0.1
+    # via langchain-community
+langchain-community==0.4.1
+    # via advance-rag
+langchain-core==1.2.9
+    # via langchain-classic
+    # via langchain-community
+    # via langchain-text-splitters
+langchain-text-splitters==1.1.0
+    # via langchain-classic
+langsmith==0.6.9
+    # via langchain-classic
+    # via langchain-community
+    # via langchain-core
 librt==0.7.8
     # via mypy
+llama-cloud==0.1.35
+    # via llama-cloud-services
+    # via llama-index-indices-managed-llama-cloud
+llama-cloud-services==0.6.54
+    # via llama-parse
+llama-index==0.14.13
+    # via advance-rag
+llama-index-cli==0.5.3
+    # via llama-index
+llama-index-core==0.14.13
+    # via llama-cloud-services
+    # via llama-index
+    # via llama-index-cli
+    # via llama-index-embeddings-openai
+    # via llama-index-indices-managed-llama-cloud
+    # via llama-index-llms-openai
+    # via llama-index-readers-file
+    # via llama-index-readers-llama-parse
+llama-index-embeddings-openai==0.5.1
+    # via llama-index
+    # via llama-index-cli
+llama-index-indices-managed-llama-cloud==0.9.4
+    # via llama-index
+llama-index-instrumentation==0.4.2
+    # via llama-index-workflows
+llama-index-llms-openai==0.6.18
+    # via llama-index
+    # via llama-index-cli
+llama-index-readers-file==0.5.6
+    # via llama-index
+llama-index-readers-llama-parse==0.5.1
+    # via llama-index
+llama-index-workflows==2.14.1
+    # via llama-index-core
+llama-parse==0.6.54
+    # via llama-index-readers-llama-parse
 markdown==3.10.1
     # via advance-rag
 markdown-it-py==4.0.0
     # via rich
 markupsafe==3.0.3
     # via jinja2
+marshmallow==3.26.2
+    # via dataclasses-json
 mdurl==0.1.2
     # via markdown-it-py
+mmh3==5.2.0
+    # via chromadb
 mpmath==1.3.0
     # via sympy
+multidict==6.7.1
+    # via aiohttp
+    # via yarl
 mypy==1.19.1
 mypy-extensions==1.1.0
     # via black
     # via mypy
+    # via typing-inspect
 neo4j==6.1.0
     # via advance-rag
+    # via neo4j-graphrag
+neo4j-graphrag==1.13.0
+    # via advance-rag
+nest-asyncio==1.6.0
+    # via llama-index-core
 networkx==3.6.1
     # via advance-rag
+    # via llama-index-core
     # via torch
+nltk==3.9.2
+    # via llama-index
+    # via llama-index-core
 nodeenv==1.10.0
     # via pre-commit
 numpy==2.4.2
+    # via chromadb
+    # via langchain-community
+    # via llama-index-core
+    # via neo4j-graphrag
+    # via onnxruntime
     # via pandas
     # via pgvector
     # via scikit-learn
     # via scipy
     # via sentence-transformers
     # via transformers
+oauthlib==3.3.1
+    # via requests-oauthlib
+onnxruntime==1.24.1
+    # via chromadb
+openai==2.17.0
+    # via llama-index-embeddings-openai
+    # via llama-index-llms-openai
 opentelemetry-api==1.39.1
     # via advance-rag
+    # via chromadb
     # via opentelemetry-exporter-otlp-proto-grpc
     # via opentelemetry-exporter-otlp-proto-http
     # via opentelemetry-instrumentation
@@ -156,6 +339,7 @@ opentelemetry-exporter-otlp-proto-common==1.39.1
     # via opentelemetry-exporter-otlp-proto-grpc
     # via opentelemetry-exporter-otlp-proto-http
 opentelemetry-exporter-otlp-proto-grpc==1.39.1
+    # via chromadb
     # via opentelemetry-exporter-otlp
 opentelemetry-exporter-otlp-proto-http==1.39.1
     # via opentelemetry-exporter-otlp
@@ -184,6 +368,7 @@ opentelemetry-proto==1.39.1
     # via opentelemetry-exporter-otlp-proto-http
 opentelemetry-sdk==1.39.1
     # via advance-rag
+    # via chromadb
     # via opentelemetry-exporter-otlp-proto-grpc
     # via opentelemetry-exporter-otlp-proto-http
 opentelemetry-semantic-conventions==0.60b1
@@ -198,16 +383,30 @@ opentelemetry-util-http==0.60b1
     # via opentelemetry-instrumentation-asgi
     # via opentelemetry-instrumentation-fastapi
     # via opentelemetry-instrumentation-httpx
-packaging==26.0
+orjson==3.11.7
+    # via chromadb
+    # via langsmith
+    # via pinecone
+overrides==7.7.0
+    # via chromadb
+packaging==24.2
     # via black
+    # via build
+    # via deprecation
     # via huggingface-hub
     # via kombu
+    # via langchain-core
+    # via langsmith
+    # via marshmallow
+    # via onnxruntime
     # via opentelemetry-instrumentation
     # via opentelemetry-instrumentation-sqlalchemy
+    # via pinecone-plugin-assistant
     # via pytest
     # via transformers
-pandas==3.0.0
+pandas==2.3.3
     # via advance-rag
+    # via llama-index-readers-file
 passlib==1.7.4
     # via advance-rag
 pathspec==1.0.4
@@ -215,43 +414,91 @@ pathspec==1.0.4
     # via mypy
 pgvector==0.4.2
     # via advance-rag
+pillow==12.1.0
+    # via llama-index-core
+pinecone==8.0.0
+    # via advance-rag
+pinecone-plugin-assistant==3.0.2
+    # via pinecone
+pinecone-plugin-interface==0.0.7
+    # via pinecone
 platformdirs==4.5.1
+    # via banks
     # via black
+    # via llama-cloud-services
+    # via llama-index-core
     # via virtualenv
 pluggy==1.6.0
     # via pytest
+posthog==5.4.0
+    # via chromadb
 pre-commit==4.5.1
 prometheus-client==0.24.1
     # via advance-rag
 prompt-toolkit==3.0.52
     # via click-repl
+propcache==0.4.1
+    # via aiohttp
+    # via yarl
 protobuf==6.33.5
     # via googleapis-common-protos
+    # via onnxruntime
     # via opentelemetry-proto
+    # via weaviate-client
 pyasn1==0.6.2
     # via python-jose
     # via rsa
+pybase64==1.4.3
+    # via chromadb
+pycparser==3.0
+    # via cffi
 pydantic==2.12.5
     # via advance-rag
+    # via banks
+    # via chromadb
     # via fastapi
+    # via langchain-classic
+    # via langchain-core
+    # via langsmith
+    # via llama-cloud
+    # via llama-cloud-services
+    # via llama-index-core
+    # via llama-index-instrumentation
+    # via llama-index-workflows
+    # via neo4j-graphrag
+    # via openai
     # via pydantic-settings
+    # via weaviate-client
 pydantic-core==2.41.5
     # via pydantic
 pydantic-settings==2.12.0
     # via advance-rag
+    # via langchain-community
 pygments==2.19.2
     # via pytest
     # via rich
 pyjwt==2.11.0
     # via advance-rag
+pypdf==6.6.2
+    # via llama-index-readers-file
+    # via neo4j-graphrag
+pypika==0.51.1
+    # via chromadb
+pyproject-hooks==1.2.0
+    # via build
 pytest==9.0.2
     # via pytest-asyncio
 pytest-asyncio==1.3.0
 python-dateutil==2.9.0.post0
     # via celery
+    # via kubernetes
     # via pandas
+    # via pinecone
+    # via posthog
 python-dotenv==1.2.1
+    # via llama-cloud-services
     # via pydantic-settings
+    # via uvicorn
 python-jose==3.5.0
     # via advance-rag
 python-multipart==0.0.22
@@ -260,20 +507,50 @@ pytokens==0.4.1
     # via black
 pytz==2025.2
     # via neo4j
+    # via pandas
 pyyaml==6.0.3
+    # via chromadb
     # via huggingface-hub
+    # via kubernetes
+    # via langchain-classic
+    # via langchain-community
+    # via langchain-core
+    # via llama-index-core
+    # via neo4j-graphrag
     # via pre-commit
     # via transformers
+    # via uvicorn
 redis==7.1.0
     # via advance-rag
+referencing==0.37.0
+    # via jsonschema
+    # via jsonschema-specifications
 regex==2026.1.15
+    # via nltk
     # via tiktoken
     # via transformers
 requests==2.32.5
+    # via kubernetes
+    # via langchain-classic
+    # via langchain-community
+    # via langsmith
+    # via llama-index-core
     # via opentelemetry-exporter-otlp-proto-http
+    # via pinecone-plugin-assistant
+    # via posthog
+    # via requests-oauthlib
+    # via requests-toolbelt
     # via tiktoken
+requests-oauthlib==2.0.0
+    # via kubernetes
+requests-toolbelt==1.0.0
+    # via langsmith
 rich==14.3.2
+    # via chromadb
     # via typer
+rpds-py==0.30.0
+    # via jsonschema
+    # via referencing
 rsa==4.9.1
     # via python-jose
 ruff==0.15.0
@@ -283,94 +560,162 @@ scikit-learn==1.8.0
     # via advance-rag
     # via sentence-transformers
 scipy==1.17.0
+    # via neo4j-graphrag
     # via scikit-learn
     # via sentence-transformers
 sentence-transformers==5.2.2
     # via advance-rag
 setuptools==81.0.0
+    # via llama-index-core
     # via torch
 shellingham==1.5.4
     # via huggingface-hub
     # via typer
 six==1.17.0
     # via ecdsa
+    # via kubernetes
+    # via posthog
     # via python-dateutil
+sniffio==1.3.1
+    # via openai
 soupsieve==2.8.3
     # via beautifulsoup4
 sqlalchemy==2.0.46
     # via advance-rag
+    # via langchain-classic
+    # via langchain-community
+    # via llama-index-core
 starlette==0.52.1
     # via fastapi
+striprtf==0.0.26
+    # via llama-index-readers-file
 structlog==25.5.0
     # via advance-rag
 sympy==1.14.0
+    # via onnxruntime
     # via torch
+tenacity==9.1.4
+    # via advance-rag
+    # via chromadb
+    # via langchain-community
+    # via langchain-core
+    # via llama-cloud-services
+    # via llama-index-core
+    # via neo4j-graphrag
 threadpoolctl==3.6.0
     # via scikit-learn
 tiktoken==0.12.0
     # via advance-rag
+    # via llama-index-core
 tokenizers==0.22.2
+    # via chromadb
     # via transformers
 torch==2.10.0
     # via sentence-transformers
 tqdm==4.67.3
+    # via chromadb
     # via huggingface-hub
+    # via llama-index-core
+    # via nltk
+    # via openai
     # via sentence-transformers
     # via transformers
 transformers==5.1.0
     # via sentence-transformers
 typer==0.21.1
     # via advance-rag
+    # via chromadb
 typer-slim==0.21.1
     # via huggingface-hub
     # via transformers
+types-pyyaml==6.0.12.20250915
+    # via neo4j-graphrag
 typing-extensions==4.15.0
+    # via aiosignal
     # via anyio
     # via beautifulsoup4
+    # via chromadb
     # via fastapi
     # via grpcio
     # via huggingface-hub
+    # via langchain-core
+    # via llama-index-core
+    # via llama-index-workflows
     # via mypy
+    # via openai
     # via opentelemetry-api
     # via opentelemetry-exporter-otlp-proto-grpc
     # via opentelemetry-exporter-otlp-proto-http
     # via opentelemetry-propagator-b3
     # via opentelemetry-sdk
     # via opentelemetry-semantic-conventions
+    # via pinecone
     # via pydantic
     # via pydantic-core
     # via pytest-asyncio
+    # via referencing
     # via sentence-transformers
     # via sqlalchemy
     # via starlette
     # via torch
     # via typer
     # via typer-slim
+    # via typing-inspect
     # via typing-inspection
+typing-inspect==0.9.0
+    # via dataclasses-json
+    # via llama-index-core
 typing-inspection==0.4.2
     # via fastapi
     # via pydantic
     # via pydantic-settings
 tzdata==2025.3
     # via kombu
+    # via pandas
 tzlocal==5.3.1
     # via celery
 urllib3==2.6.3
+    # via kubernetes
+    # via pinecone
     # via requests
+uuid-utils==0.14.0
+    # via langchain-core
+    # via langsmith
 uvicorn==0.40.0
     # via advance-rag
+    # via chromadb
+uvloop==0.22.1
+    # via uvicorn
+validators==0.35.0
+    # via weaviate-client
 vine==5.1.0
     # via amqp
     # via celery
     # via kombu
 virtualenv==20.36.1
     # via pre-commit
+watchfiles==1.1.1
+    # via uvicorn
 wcwidth==0.6.0
     # via prompt-toolkit
+weaviate-client==4.19.2
+    # via advance-rag
+websocket-client==1.9.0
+    # via kubernetes
+websockets==16.0
+    # via uvicorn
 wrapt==1.17.3
+    # via deprecated
+    # via llama-index-core
     # via opentelemetry-instrumentation
     # via opentelemetry-instrumentation-httpx
     # via opentelemetry-instrumentation-redis
     # via opentelemetry-instrumentation-sqlalchemy
+xxhash==3.6.0
+    # via langsmith
+yarl==1.22.0
+    # via aiohttp
 zipp==3.23.0
     # via importlib-metadata
+zstandard==0.25.0
+    # via langsmith
